@@ -107,6 +107,15 @@ source $ZSH/oh-my-zsh.sh
 alias composer='docker run -v `pwd`:/var/www/html localcomposer:latest composer'
 alias npm='docker run -it -v `pwd`:/usr/app localnode:latest npm'
 
+# DOCKER COMMAND
+# docker-compose up
+alias dup='docker-compose up'
+alias dstop='docker-compose stop'
+# Stop all containers
+dstopall() { docker stop $(docker ps -a -q); }
+# Remove dangling images
+drmd() { docker rmi -f $(docker images -f "dangling=true" -q); }
+
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
