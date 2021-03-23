@@ -1,0 +1,10 @@
+# Github account
+Host github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa
+
+# Gitlab account
+ Host gitlab.kyanon.digital
+   Port 2222
+   Preferredauthentications publickey
+   IdentityFile ~/.ssh/gitlab_rsa

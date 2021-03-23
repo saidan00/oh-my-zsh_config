@@ -40,7 +40,7 @@ ZSH_THEME="robbyrussell"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -107,9 +107,11 @@ source $ZSH/oh-my-zsh.sh
 alias composer='docker run -v `pwd`:/var/www/html localcomposer:latest composer'
 alias npm='docker run -it -v `pwd`:/usr/app localnode:latest npm'
 
-# DOCKER COMMAND
-# docker-compose up
+# DOCKER COMMANDS
+# docker-compose
 alias dup='docker-compose up'
+alias ddown='docker-compose down'
+alias dexec='docker-compose exec'
 alias dstop='docker-compose stop'
 # Stop all containers
 dstopall() { docker stop $(docker ps -a -q); }
