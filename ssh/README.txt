@@ -1,0 +1,1 @@
+File gốc: ~/.ssh/config
