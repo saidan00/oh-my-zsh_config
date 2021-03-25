@@ -109,14 +109,24 @@ alias npm='docker run -it -v `pwd`:/usr/app localnode:latest npm'
 
 # DOCKER COMMANDS
 # docker-compose
-alias dup='docker-compose up'
+alias dbuild='docker-compose build'
 alias ddown='docker-compose down'
 alias dexec='docker-compose exec'
+alias dlogs='docker-compose logs -f'
+alias dstart='docker-compose start'
 alias dstop='docker-compose stop'
+alias dup='docker-compose up'
 # Stop all containers
 dstopall() { docker stop $(docker ps -a -q); }
 # Remove dangling images
 drmd() { docker rmi -f $(docker images -f "dangling=true" -q); }
+
+# List all colors
+colors() {
+  for i in {0..255};
+  do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
+  done;
+}
 
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
